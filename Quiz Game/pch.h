@@ -9,6 +9,17 @@
 #ifndef PCH_H
 #define PCH_H
 
-// TODO: add headers that you want to pre-compile here
+void cont();
+void Round1();
+void Round2();
+void scoring();
+void showRecord();
+void help();
+void clearScreen();
+void updateLeaderboard();
+void leaderboard();
+void resetScore();
+void showRecord();
+
 
 #endif //PCH_H

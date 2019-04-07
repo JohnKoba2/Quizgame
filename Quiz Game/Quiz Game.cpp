@@ -16,19 +16,19 @@ int scor = 0, fscor = 0, sscor = 0, tscor = 0, lscor = 0;
 string name, fnam = "AAA", snam = "AAA", tnam = "AAA", lnam = "AAA";
 bool play = true;
 
-void clearScreen()
+void clearScreen() //prints 100 newlines, effectivly clearing the screen
 {
 	int n;
 	for (n = 0; n < 10; n++)
 		printf("\n\n\n\n\n\n\n\n\n\n");
 }
 
-void resetScore()
+void resetScore() //resets all variables to 0
 {
 	s = 0, f = 0, prize = 0, t = 0;
 }
 
-void leaderboard()
+void leaderboard() //prints the leaderboard in a nice pretty box
 {
 	cout << setprecision(7) << fixed;
 
@@ -96,6 +96,11 @@ void scoring()
 		prize++;
 		cout << "Correct! \n";
 	}
+	else if (Res = 'X')
+	{
+		s += 3, t +=3;
+		cout << "Debug override!";
+	}
 	else
 	{
 		f++;
@@ -126,28 +131,7 @@ void showRecord()
 	cout << "Your current record is " << s << " questions answered correctly.\n"
 		<< "Your current prize amount is $" << prize * 10000 << endl;
 }
-void cont()
-{
-	cin >> Res;
-	Res = toupper(Res);
-	switch (Res) {
-	case 'Y':
-		break;
-	case 'N':
-		cout << "Thank you for Playing!\n";
-		resetScore();
-		leaderboard();
-		break;
-	case 'R':
-		showRecord();
-		cout << "\n\n\n";
-		break;
-	default:
-		cout << "Please enter Y or N";
-		cont();
-	}
 
-}
 
 
 void Round2()
@@ -198,7 +182,7 @@ void Round1()
 		{
 		char choice;
 
-
+		// Main Screen where you start the game
 		cout << "****************************************\n"
 			<< "**             Quiz Game              **\n"
 			<< "****************************************\n"
@@ -247,3 +231,26 @@ void Round1()
 }
 
 
+	void cont()
+	{
+
+		cin >> Res;
+		Res = toupper(Res);
+		switch (Res) {
+		case 'Y':
+			break;
+		case 'N':
+			cout << "Thank you for Playing!\n";
+			resetScore();
+			leaderboard();
+			break;
+		case 'R':
+			showRecord();
+			cout << "\n\n\n";
+			break;
+		default:
+			cout << "Please enter Y or N";
+			cin >> Res;
+		}
+
+	}
