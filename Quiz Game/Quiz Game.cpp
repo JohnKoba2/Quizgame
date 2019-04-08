@@ -12,7 +12,7 @@ using namespace std;
 int s = 0, f = 0, prize = 0;
 char Res;
 int t = 0, fques = 00, sques = 00, tques = 00, lques = 00;
-int scor = 0, fscor = 0, sscor = 0, tscor = 0, lscor = 0;
+int scor = 0, fscor = 0, sscor = 0, tscor = 0, lscor = 0, quit = 0;
 string name, fnam = "AAA", snam = "AAA", tnam = "AAA", lnam = "AAA";
 bool play = true;
 
@@ -25,7 +25,7 @@ void clearScreen() //prints 100 newlines, effectivly clearing the screen
 
 void resetScore() //resets all variables to 0
 {
-	s = 0, f = 0, prize = 0, t = 0;
+	s = 0, f = 0, prize = 0, t = 0, quit = 0;
 }
 
 void leaderboard() //prints the leaderboard in a nice pretty box
@@ -96,11 +96,11 @@ void scoring()
 		prize++;
 		cout << "Correct! \n";
 	}
-	else if (Res = 'X')
+	/*else if (Res = 'X')
 	{
 		s += 3, t +=3;
 		cout << "Debug override!";
-	}
+	}*/
 	else
 	{
 		f++;
@@ -112,6 +112,11 @@ void scoring()
 		cout << "Congrats! You win!"
 			<< "What are your initials?";
 		updateLeaderboard();
+	}
+	else if (prize > 0)
+	{
+		cout << "I'm sorry, you have lost.";
+		quit++;
 	}
 }
 
@@ -140,7 +145,7 @@ void Round2()
 	cout << "****************************************\n"
 		<< "**           Challenge Round          **\n"
 		<< "****************************************\n";
-	while (prize < 10)
+	while (prize < 10 && quit == 0)
 	{
 		Questions();
 		scoring();
@@ -156,8 +161,10 @@ void Round1()
 	cout << "****************************************\n"
 		<< "**            Warm-Up Round           **\n"
 		<< "****************************************\n";
+	resetScore();
 	while (t < 3)
 	{
+		
 		Questions();
 		scoring();
 		t++;
@@ -243,6 +250,7 @@ void Round1()
 			cout << "Thank you for Playing!\n";
 			resetScore();
 			leaderboard();
+			quit++;
 			break;
 		case 'R':
 			showRecord();

@@ -1,0 +1,3 @@
+﻿  Quiz Game.cpp
+c:\users\jkoba\documents\github\quizgame\quiz game\questions.h(11): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Quiz Game.vcxproj -> C:\Users\jkoba\Documents\GitHub\Quizgame\x64\Debug\Quiz Game.exe
