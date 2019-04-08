@@ -48,14 +48,14 @@ void updateLeaderboard()
 {
 	cout << "What are your Initials?";
 	cin >> name;
-	if (s >= lques)
+	if (prize * 10000 > lscor)
 	{
 
 		lnam = name;
 		lques = s;
 		lscor = prize * 10000;
 
-		if (s >= tques)
+		if (prize * 10000 > tscor)
 		{
 			lnam = tnam;
 			lques = tques;
@@ -65,7 +65,7 @@ void updateLeaderboard()
 			tques = s;
 			tscor = prize * 10000;
 
-			if (s >= sques)
+			if (prize * 10000 > sscor)
 			{
 				lnam = tnam;
 				lques = tques;
@@ -79,7 +79,7 @@ void updateLeaderboard()
 				sques = s;
 				sscor = prize * 10000;
 
-				if (s >= fques)
+				if (prize * 10000 > fscor)
 				{
 					lnam = tnam;
 					lques = tques;
