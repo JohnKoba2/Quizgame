@@ -46,30 +46,59 @@ void leaderboard() //prints the leaderboard in a nice pretty box
 
 void updateLeaderboard()
 {
+	cout << "What are your Initials?";
 	cin >> name;
-	if (s > fques)
+	if (s >= lques)
 	{
-		fnam = name;
-		fques = s;
-		fscor = prize * 10000;
-	}
-	else if (s > sques)
-	{
-		snam = name;
-		sques = s;
-		sscor = prize * 10000;
-	}
-	else if (s > tques)
-	{
-		tnam = name;
-		tques = s;
-		tscor = prize * 10000;
-	}
-	else if (s > lques)
-	{
+
 		lnam = name;
 		lques = s;
 		lscor = prize * 10000;
+
+		if (s >= tques)
+		{
+			lnam = tnam;
+			lques = tques;
+			lscor = tscor;
+
+			tnam = name;
+			tques = s;
+			tscor = prize * 10000;
+
+			if (s >= sques)
+			{
+				lnam = tnam;
+				lques = tques;
+				lscor = tscor;
+
+				tnam = snam;
+				tques = sques;
+				tscor = sscor;
+
+				snam = name;
+				sques = s;
+				sscor = prize * 10000;
+
+				if (s >= fques)
+				{
+					lnam = tnam;
+					lques = tques;
+					lscor = tscor;
+
+					tnam = snam;
+					tques = sques;
+					tscor = sscor;
+
+					snam = fnam;
+					sques = fques;
+					sscor = fscor;
+
+					fnam = name;
+					fques = s;
+					fscor = prize * 10000;
+				}
+			}
+		}
 	}
 	else
 		cout << "Sorry you didnt score high enough to make it on the Leaderboard. ";
@@ -109,15 +138,10 @@ void scoring()
 	}
 	if (prize == 10)
 	{
-		cout << "Congrats! You win!"
-			<< "What are your initials?";
+		cout << "Congrats! You win!";			
 		updateLeaderboard();
 	}
-	else if (prize > 0)
-	{
-		cout << "I'm sorry, you have lost.";
-		quit++;
-	}
+
 }
 
 void help()
@@ -149,6 +173,13 @@ void Round2()
 	{
 		Questions();
 		scoring();
+			
+		if (prize < 0 )
+	{
+	cout << "I'm sorry, you have lost.\n\n";
+	quit++;
+	break;
+	}
 		cout << "Would you like to continue? Y/N or press R to view your current record.";
 		cont();
 	}
@@ -240,25 +271,29 @@ void Round1()
 
 	void cont()
 	{
-
-		cin >> Res;
-		Res = toupper(Res);
-		switch (Res) {
-		case 'Y':
-			break;
-		case 'N':
-			cout << "Thank you for Playing!\n";
-			resetScore();
-			leaderboard();
-			quit++;
-			break;
-		case 'R':
-			showRecord();
-			cout << "\n\n\n";
-			break;
-		default:
-			cout << "Please enter Y or N";
+		bool run = true;
+		while (run)
+		{
 			cin >> Res;
+			Res = toupper(Res);
+			switch (Res) {
+			case 'Y':
+				run = false;
+				break;
+			case 'N':
+				cout << "Thank you for Playing!\n";
+				updateLeaderboard();
+				resetScore();
+				leaderboard();
+				quit++;
+				run = false;
+				break;
+			case 'R':
+				showRecord();
+				cout << "\n\n\n";
+				break;
+			default:
+				cout << "Please enter Y or N";
+			}
 		}
-
 	}
