@@ -148,7 +148,8 @@ void help()
 void showRecord()
 {
 	cout << "Your current record is " << s << " questions answered correctly.\n"
-		<< "Your current prize amount is $" << prize * 10000 << endl;
+		<< "Your current prize amount is $" << prize * 10000 
+		<< "\nWould you like to continue? Press Y or N." << endl;
 }
 
 
@@ -170,7 +171,7 @@ void Round2()
 	quit++;
 	break;
 	}
-		cout << "Would you like to continue? Y/N or press R to view your current record.";
+		cout << "Would you like to continue for more money? Y/N or press R \nto view your record for this round.";
 		cont();
 	}
 }
@@ -280,7 +281,7 @@ void Round1()
 				break;
 			case 'R':
 				showRecord();
-				cout << "\n\n\n";
+				cout << "\n";
 				break;
 			default:
 				cout << "Please enter Y or N";

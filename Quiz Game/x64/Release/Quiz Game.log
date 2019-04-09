@@ -1,1 +1,8 @@
-﻿  Quiz Game.vcxproj -> D:\Documents\GitHub\Quizgame\x64\Release\Quiz Game.exe
+﻿  Quiz Game.cpp
+d:\documents\github\quizgame\quiz game\questions.h(11): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating code
+  3 of 147 functions ( 2.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Quiz Game.vcxproj -> D:\Documents\GitHub\Quizgame\x64\Release\Quiz Game.exe
