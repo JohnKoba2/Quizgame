@@ -67,10 +67,7 @@ void updateLeaderboard()
 
 			if (prize * 10000 > sscor)
 			{
-				lnam = tnam;
-				lques = tques;
-				lscor = tscor;
-
+				
 				tnam = snam;
 				tques = sques;
 				tscor = sscor;
@@ -81,14 +78,7 @@ void updateLeaderboard()
 
 				if (prize * 10000 > fscor)
 				{
-					lnam = tnam;
-					lques = tques;
-					lscor = tscor;
-
-					tnam = snam;
-					tques = sques;
-					tscor = sscor;
-
+					
 					snam = fnam;
 					sques = fques;
 					sscor = fscor;
