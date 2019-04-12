@@ -45,7 +45,7 @@ void leaderboard() //prints the leaderboard in a nice pretty box
 }
 
 void updateLeaderboard()
-{
+{ // Accepts your initials then moves your score up to the proper position, pushing down other scores if you beat them. 
 	cout << "What are your Initials?";
 	cin >> name;
 	if (prize * 10000 > lscor)
@@ -106,7 +106,7 @@ void updateLeaderboard()
 
 
 void scoring()
-{
+{ //standard Scoring S = sucesses and F = Failure. X was a debug command used for skipping round 1 to test round 2.
 	cin >> Res;
 	Res = toupper(Res);
 	if (Res == toupper(Ans))
@@ -135,7 +135,7 @@ void scoring()
 }
 
 void help()
-{
+{// Clears the screen and then prints the help instructions. 
 	clearScreen();
 	cout << "The goal of this game is to get to $1,000,000 by answering questions. \n"
 		<< "In round 1 you must anwser 2 questions correctly out of a total of  \n"
@@ -146,7 +146,7 @@ void help()
 }
 
 void showRecord()
-{
+{ //this prints out your current record of questions anwsered correctly, and the amount of money you get.
 	cout << "Your current record is " << s << " questions answered correctly.\n"
 		<< "Your current prize amount is $" << prize * 10000 
 		<< "\nWould you like to continue? Press Y or N." << endl;
@@ -155,7 +155,7 @@ void showRecord()
 
 
 void Round2()
-{
+{// Starts round 2, getting to 1mil or losing all your money will end the game.
 	resetScore();
 	cout << "****************************************\n"
 		<< "**           Challenge Round          **\n"
@@ -179,7 +179,7 @@ void Round2()
 
 void Round1()
 {
-
+	//Starts the warmup round, Asks 3 questions, must anwser 2 correctly to continue to round 2.
 	cout << "****************************************\n"
 		<< "**            Warm-Up Round           **\n"
 		<< "****************************************\n";
@@ -261,7 +261,7 @@ void Round1()
 
 
 	void cont()
-	{
+	{//asks if user wants to continue playing.
 		bool run = true;
 		while (run)
 		{
